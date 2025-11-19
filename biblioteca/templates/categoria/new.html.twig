@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Crear nueva Categoría{% endblock %}
+
+{% block body %}
+
+<h1 class="text-center mb-4">Crear nueva Categoría</h1>
+
+<div class="card shadow p-4 mx-auto" style="max-width: 600px; border-radius: 12px;">
+
+    <div class="p-3 border rounded" style="background:#fafafa;">
+        {{ include('categoria/_form.html.twig', {'button_label': 'Guardar'}) }}
+    </div>
+
+    <div class="d-flex justify-content-start mt-4">
+        <a class="btn btn-outline-secondary px-4" href="{{ path('app_categoria_index') }}">
+            Volver al listado
+        </a>
+    </div>
+</div>
+
+<style>
+    /* Separación entre campos */
+    form div.form-group,
+    form div.mb-3 {
+        margin-bottom: 22px !important;
+    }
+
+    /* Labels */
+    form label {
+        font-weight: 600 !important;
+        margin-bottom: 6px !important;
+        display: block;
+    }
+
+    /* Inputs */
+    form input,
+    form select {
+        padding: 8px 10px !important;
+        border-radius: 6px !important;
+    }
+
+    /* Botón principal (Guardar) */
+    form button.btn-primary {
+        margin-top: 16px !important;
+        padding: 8px 16px !important;
+        border-radius: 6px !important;
+    }
+</style>
+
+{% endblock %}

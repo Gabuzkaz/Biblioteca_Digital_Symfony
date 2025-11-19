@@ -1,0 +1,106 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Libro{% endblock %}
+
+{% block body %}
+    <h1 class="mb-4">Libro</h1>
+
+    <table class="table table-striped shadow-sm rounded" style="background:white;">
+        <tbody>
+            <tr>
+                <th>Autor</th>
+                <td>{{ libro.autor.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Titulo</th>
+                <td>{{ libro.titulo }}</td>
+            </tr>
+            <tr>
+                <th>Id_autor</th>
+                <td>{{ libro.autor.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Isbn</th>
+                <td>{{ libro.isbn }}</td>
+            </tr>
+            <tr>
+                <th>Editorial</th>
+                <td>{{ libro.editorial }}</td>
+            </tr>
+            <tr>
+                <th>Anio_publicacion</th>
+                <td>{{ libro.anioPublicacion }}</td>
+            </tr>
+            <tr>
+                <th>Categoría</th>
+                <td>{{ libro.categoria ? libro.categoria.nombre : 'Sin categoría' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="d-flex gap-3 mt-4">
+
+        <a class="btn btn-secondary" href="{{ path('app_libro_index') }}">
+            Volver al listado
+        </a>
+
+        <a class="btn btn-primary" href="{{ path('app_libro_edit', {'id': libro.id}) }}">
+            Editar
+        </a>
+
+        <div class="delete-container">
+            {{ include('libro/_delete_form.html.twig') }}
+        </div>
+
+    </div>
+
+<style>
+    /* Tabla bonita */
+    table.table {
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    /* Botón Eliminar */
+    .delete-container form button {
+        border: 1px solid #dc3545 !important;
+        color: #dc3545 !important;
+        background: white !important;
+        padding: 6px 14px !important;
+        border-radius: 6px !important;
+        transition: 0.2s;
+    }
+
+    .delete-container form button:hover {
+        background: #dc3545 !important;
+        color: #fff !important;
+    }
+
+    /* Botón azul (Editar) */
+    a.btn.btn-primary {
+        background-color: #0d6efd !important;
+        border: 1px solid #0d6efd !important;
+        padding: 6px 14px !important;
+        border-radius: 6px !important;
+    }
+
+    a.btn.btn-primary:hover {
+        background-color: #0b5ed7 !important;
+        border-color: #0a58ca !important;
+    }
+
+    /* Botón gris (Volver al listado) */
+    a.btn.btn-secondary {
+        background-color: #e2e6ea !important;
+        border: 1px solid #cbd3da !important;
+        color: #333 !important;
+        padding: 6px 14px !important;
+        border-radius: 6px !important;
+    }
+
+    a.btn.btn-secondary:hover {
+        background-color: #d6d8db !important;
+    }
+</style>
+
+{% endblock %}

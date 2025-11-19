@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editoriales{% endblock %}
+
+{% block body %}
+    <h1 class="mb-4">Editoriales</h1>
+
+    <table class="table table-striped shadow-sm rounded" style="background:white;">
+        <thead class="table-light">
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th style="width: 220px;">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for editorial in editorials %}
+            <tr>
+                <td>{{ editorial.id }}</td>
+                <td>{{ editorial.nombre }}</td>
+                <td class="d-flex gap-2">
+                    <a class="btn btn-secondary btn-sm"
+                       href="{{ path('app_editorial_show', {'id': editorial.id}) }}">
+                        Ver
+                    </a>
+
+                    <a class="btn btn-primary btn-sm"
+                       href="{{ path('app_editorial_edit', {'id': editorial.id}) }}">
+                        Editar
+                    </a>
+
+                    {{ include('editorial/_delete_form.html.twig', {editorial: editorial}) }}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">No se encontraron registros.</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-success mt-3" href="{{ path('app_editorial_new') }}">
+        Crear nueva
+    </a>
+{% endblock %}

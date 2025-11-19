@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nueva Editorial{% endblock %}
+
+{% block body %}
+    <h2 class="text-center mb-4">Crear nueva Editorial</h2>
+
+    <div class="card shadow p-4 mx-auto" style="max-width: 600px; border-radius: 12px;">
+        {{ include('editorial/_form.html.twig', {form: form, button_label: 'Guardar'}) }}
+
+        <a class="btn btn-outline-secondary mt-3"
+           href="{{ path('app_editorial_index') }}">
+            Volver al listado
+        </a>
+    </div>
+{% endblock %}

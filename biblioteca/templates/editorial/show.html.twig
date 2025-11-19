@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editorial{% endblock %}
+
+{% block body %}
+    <h1 class="mb-4">Editorial</h1>
+
+    <table class="table table-striped shadow-sm rounded" style="background:white;">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ editorial.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ editorial.nombre }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="d-flex gap-3 mt-4">
+        <a class="btn btn-secondary"
+           href="{{ path('app_editorial_index') }}">
+            Volver al listado
+        </a>
+
+        <a class="btn btn-primary"
+           href="{{ path('app_editorial_edit', {'id': editorial.id}) }}">
+            Editar
+        </a>
+
+        {{ include('editorial/_delete_form.html.twig', {editorial: editorial}) }}
+    </div>
+{% endblock %}
+
