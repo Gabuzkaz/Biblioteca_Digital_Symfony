@@ -1,0 +1,13 @@
+{# templates/libro/_form.html.twig #}
+{{ form_start(form) }}
+    {{ form_row(form.titulo) }}
+    {{ form_row(form.autor) }}
+    {{ form_row(form.isbn) }}
+    {{ form_row(form.editorial) }}
+    {{ form_row(form.anioPublicacion) }}
+    {{ form_row(form.categoria) }}
+
+    <button class="btn btn-primary">
+        {{ button_label|default('Save') }}
+    </button>
+{{ form_end(form) }}

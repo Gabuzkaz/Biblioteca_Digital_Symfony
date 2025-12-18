@@ -1,0 +1,119 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Categorías{% endblock %}
+
+{% block body %}
+<h1 class="mb-4">Categorías</h1>
+
+<table class="table table-striped shadow-sm rounded" style="background:white;">
+    <thead class="table-light">
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+
+    <tbody>
+    {% for categorium in categorias %}
+        <tr>
+            <td>{{ categorium.id }}</td>
+            <td>{{ categorium.nombre }}</td>
+
+            <td class="d-flex gap-2">
+
+                <a class="btn btn-secondary btn-sm"
+                   href="{{ path('app_categoria_show', {'id': categorium.id}) }}">
+                    Ver
+                </a>
+
+                <a class="btn btn-primary btn-sm"
+                   href="{{ path('app_categoria_edit', {'id': categorium.id}) }}">
+                    Editar
+                </a>
+
+                <div class="delete-container">
+                    {{ include('categoria/_delete_form.html.twig') }}
+                </div>
+
+            </td>
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="3">No se encontraron registros.</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<a class="btn btn-success mt-3" href="{{ path('app_categoria_new') }}">
+    Crear nuevo
+</a>
+
+<style>
+    /* Tabla redondeada */
+    table.table {
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    /* Botón gris (Ver) */
+    a.btn.btn-secondary {
+        background-color: #e2e6ea !important;
+        border: 1px solid #cbd3da !important;
+        color: #333 !important;
+        padding: 6px 12px !important;
+        border-radius: 6px !important;
+        font-size: 0.85rem;
+    }
+
+    a.btn.btn-secondary:hover {
+        background-color: #d6d8db !important;
+    }
+
+    /* Botón azul (Editar) */
+    a.btn.btn-primary {
+        background-color: #0d6efd !important;
+        border: 1px solid #0d6efd !important;
+        padding: 6px 12px !important;
+        border-radius: 6px !important;
+        font-size: 0.85rem;
+    }
+
+    a.btn.btn-primary:hover {
+        background-color: #0b5ed7 !important;
+        border-color: #0a58ca !important;
+    }
+
+    /* Botón rojo (Delete) */
+    .delete-container form button {
+        border: 1px solid #dc3545 !important;
+        color: #dc3545 !important;
+        background: white !important;
+        padding: 6px 12px !important;
+        border-radius: 6px !important;
+        font-size: 0.85rem;
+        transition: 0.2s;
+    }
+
+    .delete-container form button:hover {
+        background: #dc3545 !important;
+        color: #fff !important;
+    }
+
+    /* Botón verde (Crear nuevo) */
+    a.btn.btn-success {
+        background-color: #198754 !important;
+        border-radius: 6px !important;
+        border: 1px solid #198754 !important;
+        padding: 8px 16px !important;
+        color: white !important;
+        font-weight: 500;
+    }
+
+    a.btn.btn-success:hover {
+        background-color: #157347 !important;
+    }
+</style>
+
+{% endblock %}

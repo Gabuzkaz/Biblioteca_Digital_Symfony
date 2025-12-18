@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Autor{% endblock %}
+
+{% block body %}
+    <h1 class="mb-4">Autor</h1>
+
+    <table class="table table-striped shadow-sm rounded" style="background:white;">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ autor.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ autor.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Nacionalidad</th>
+                <td>{{ autor.nacionalidad }}</td>
+            </tr>
+            <tr>
+                <th>Año nacimiento</th>
+                <td>{{ autor.anioNacimiento }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="d-flex gap-3 mt-4">
+
+        <a class="btn btn-secondary" href="{{ path('app_autor_index') }}">
+            Volver al listado
+        </a>
+
+        <a class="btn btn-primary" href="{{ path('app_autor_edit', {'id': autor.id}) }}">
+            Editar
+        </a>
+
+        <div class="delete-container">
+            {{ include('autor/_delete_form.html.twig') }}
+        </div>
+
+    </div>
+
+<style>
+    /* Tabla estilo profesional */
+    table.table {
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    /* Botón gris */
+    a.btn.btn-secondary {
+        background-color: #e2e6ea !important;
+        border: 1px solid #cbd3da !important;
+        color: #333 !important;
+        padding: 6px 14px !important;
+        border-radius: 6px !important;
+    }
+    a.btn.btn-secondary:hover {
+        background-color: #d6d8db !important;
+    }
+
+    /* Botón azul (Editar) */
+    a.btn.btn-primary {
+        background-color: #0d6efd !important;
+        border: 1px solid #0d6efd !important;
+        padding: 6px 14px !important;
+        border-radius: 6px !important;
+        color: white !important;
+    }
+    a.btn.btn-primary:hover {
+        background-color: #0b5ed7 !important;
+    }
+
+    /* Botón rojo Delete */
+    .delete-container form button {
+        border: 1px solid #dc3545 !important;
+        color: #dc3545 !important;
+        background: white !important;
+        padding: 6px 14px !important;
+        border-radius: 6px !important;
+        transition: 0.2s;
+        cursor: pointer;
+    }
+    .delete-container form button:hover {
+        background: #dc3545 !important;
+        color: #fff !important;
+    }
+</style>
+
+{% endblock %}

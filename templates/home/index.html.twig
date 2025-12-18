@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inicio - Biblioteca Digital{% endblock %}
+
+{% block body %}
+
+<div class="text-center py-5">
+    <h1 class="mb-3">Sistema de Gestión de Biblioteca Digital</h1>
+
+    <p class="lead">Bienvenido al sistema de gestión de Biblioteca Digital.</p>
+    <p>Aquí podrás gestionar libros, autores, categorías y editoriales.</p>
+
+    <hr class="my-4">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-3">
+            <a href="{{ path('app_libro_index') }}" class="text-decoration-none">
+                <div class="card shadow-sm mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Módulo de Libros</h5>
+                        <p class="card-text">Gestión completa de libros.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-3">
+            <a href="{{ path('app_autor_index') }}" class="text-decoration-none">
+                <div class="card shadow-sm mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Módulo de Autores</h5>
+                        <p class="card-text">Gestiona tus autores sin complicaciones.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-3">
+            <a href="{{ path('app_categoria_index') }}" class="text-decoration-none">
+                <div class="card shadow-sm mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Módulo de Categorías</h5>
+                        <p class="card-text">Organiza categorías literarias.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-3">
+            <a href="{{ path('app_editorial_index') }}" class="text-decoration-none">
+                <div class="card shadow-sm mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Módulo de Editoriales</h5>
+                        <p class="card-text">Administra editoriales fácilmente.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
+

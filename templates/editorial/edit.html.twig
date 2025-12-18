@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editar Editorial{% endblock %}
+
+{% block body %}
+    <h2 class="text-center mb-4">Editar Editorial</h2>
+
+    <div class="card shadow p-4 mx-auto" style="max-width: 600px; border-radius: 12px;">
+        {{ include('editorial/_form.html.twig', {form: form, button_label: 'Actualizar'}) }}
+
+        <div class="d-flex justify-content-between align-items-center mt-4">
+            <a class="btn btn-outline-secondary px-4"
+               href="{{ path('app_editorial_index') }}">
+                Volver al listado
+            </a>
+
+            {{ include('editorial/_delete_form.html.twig', {editorial: editorial}) }}
+        </div>
+    </div>
+{% endblock %}

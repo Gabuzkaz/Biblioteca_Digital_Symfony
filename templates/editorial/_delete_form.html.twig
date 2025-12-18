@@ -1,0 +1,9 @@
+<form method="post"
+      action="{{ path('app_editorial_delete', {'id': editorial.id}) }}"
+      onsubmit="return confirm('¿Seguro que deseas eliminar esta editorial?');"
+>
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ editorial.id) }}">
+    <button class="btn btn-outline-danger btn-sm">
+        Eliminar
+    </button>
+</form>
